@@ -3,6 +3,7 @@
 import AccessDenied from "@/components/AccessDenied";
 import LINKButtons from "@/components/LINKButtons";
 import { AccessibilityIcon, BarChart2Icon, CogIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
@@ -32,7 +33,11 @@ const features = [
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const error = searchParams.get("error");
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setError(searchParams.get("error"));
+  }, [searchParams]);
 
   return (
     <main>
