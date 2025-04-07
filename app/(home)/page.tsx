@@ -35,6 +35,7 @@ export default function Home() {
   const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>(null);
 
+  // Используем useEffect для обработки параметров на клиентской стороне
   useEffect(() => {
     setError(searchParams.get("error"));
   }, [searchParams]);
