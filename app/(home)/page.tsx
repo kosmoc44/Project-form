@@ -1,11 +1,10 @@
+"use client";
+
 import AccessDenied from "@/components/AccessDenied";
 import LINKButtons from "@/components/LINKButtons";
-import { AccessibilityIcon, BarChart2Icon, CogIcon} from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-} from "@/components/ui/card";
+import { AccessibilityIcon, BarChart2Icon, CogIcon } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const features = [
   {
@@ -26,19 +25,18 @@ const features = [
     id: 3,
     title: "Secure and Reliable",
     description:
-      " We prioritize your data security and ensure that your forms are always available.",
+      "We prioritize your data security and ensure that your forms are always available.",
     Icon: <CogIcon />,
   },
 ];
 
-export default function Home({
-  searchParams,
-}: {
-  searchParams: { error?: string };
-}) {
+export default function Home() {
+  const searchParams = useSearchParams();
+  const error = searchParams.get("error");
+
   return (
     <main>
-      {searchParams.error ? (
+      {error ? (
         <AccessDenied />
       ) : (
         <>

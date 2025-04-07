@@ -56,7 +56,7 @@ function LandingHeader() {
           <li>
             <SignedOut>
               <Button variant="black" asChild>
-                <SignInButton mode="modal" aftersigninurl="/dashboard" />
+                <SignInButton mode="modal" fallbackRedirectUrl="/dashboard" />
               </Button>
             </SignedOut>
             <SignedIn>
