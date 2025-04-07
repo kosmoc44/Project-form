@@ -32,17 +32,17 @@ const features = [
 ];
 
 export default function Home({
-  searchParams: { error },
+  searchParams,
 }: {
   searchParams: { error?: string };
 }) {
   return (
     <main>
-      {error ? (
+      {searchParams.error ? (
         <AccessDenied />
       ) : (
         <>
-          <div className=" w-full py-12 md:py-24 lg:py-32">
+          <div className="w-full py-12 md:py-24 lg:py-32">
             <div className="container px-4 md:px-6">
               <div className="flex flex-col items-center text-center justify-center space-y-4">
                 <div className="space-y-2">
@@ -56,7 +56,7 @@ export default function Home({
                 </div>
               </div>
             </div>
-            <section className=" w-full py-12 md:py-24 lg:pt-50">
+            <section className="w-full py-12 md:py-24 lg:pt-50">
               <div className="container grid items-center gap-4 px-4 md:px-6 lg:gap-10">
                 <div className="space-y-3">
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -83,7 +83,7 @@ export default function Home({
                     </Card>
                   ))}
                 </div>
-                <LINKButtons className="mt-8"/>
+                <LINKButtons className="mt-8" />
               </div>
             </section>
           </div>
