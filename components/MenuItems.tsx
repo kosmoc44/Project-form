@@ -1,25 +1,33 @@
 import { fetchMenuItems } from "@/lib/data";
 import { Button } from "./ui/button";
 import Link from "next/link";
-// import {
-//   BookMarked,
-//   BookOpenText,
-//   Layers,
-//   SlidersHorizontal,
-// } from "lucide-react";
 
-// const iconMap = {
-//   Dosc: docs,
-//   Forms: froms,
-//   Sheets: sheets,
-//   Slider: slides,
-// };
+interface PageLocalizeInfo {
+  title: string;
+}
+
+interface Page {
+  id: number;
+  pageUrl: string;
+  localizeInfos: PageLocalizeInfo;
+  attributeValues: Record<string, unknown>;
+  parentId: number | null;
+  position: number;
+}
+
+interface MenuItemsData {
+  id: number;
+  identifier: string;
+  localizeInfos: {
+    title: string;
+  };
+  pages: Page[];
+}
 
 async function MenuItems() {
-  const menuItems = await fetchMenuItems("sidebarpf");
+  const menuItems = await fetchMenuItems("sidebarpf") as MenuItemsData;
 
-  console.log(menuItems);
-  
+  if (!menuItems?.pages) return null;
 
   return (
     <div className="flex flex-col border-y py-2">
@@ -31,11 +39,7 @@ async function MenuItems() {
           className="justify-start px-6 w-[95%] rounded-r-full"
         >
           <Link href={`/dashboard/${page.pageUrl}`}>
-            {/* <Image 
-          src={iconMap[page.localizeInfos.menuTitle as keyof typeof iconMap]}
-          alt={page.localizeInfos.menuTitle}
-          /> */}
-            <p>{page.localizeInfos.menuTitle}</p>
+            <p>{page.localizeInfos.title}</p> 
           </Link>
         </Button>
       ))}
