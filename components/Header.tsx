@@ -3,6 +3,7 @@ import { Feather, Grip } from "lucide-react";
 import Link from "next/link";
 import IconButton from "./IconButton";
 import Sidebar from "./Sidebar";
+import Search from "./Search";
 
 function Header() {
   return (
@@ -14,8 +15,8 @@ function Header() {
           <p className="text-xl text-neutral-500"></p>
         </Link>
       </div>
-      <div className="flex items-center md:justify-content-between md:flex-1 max-w-lg lg:max-w-4xl xl:max-w-5xl">
-        {/* <Search /> */}
+      <div className="flex items-center md:justify-between md:flex-1 max-w-lg lg:max-w-4xl xl:max-w-5xl">
+        <Search />
         <div className="flex items-center">
           <IconButton Icon={Grip} className="mr-3" />
           <UserButton afterSignOutUrl="/" />
