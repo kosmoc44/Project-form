@@ -15,7 +15,7 @@ function Header() {
           <p className="text-xl text-neutral-500"></p>
         </Link>
       </div>
-      <div className="flex items-center md:justify-between md:flex-1 max-w-lg lg:max-w-4xl xl:max-w-5xl">
+      <div className="flex items-center gap-3 md:justify-between md:flex-1 max-w-lg lg:max-w-4xl xl:max-w-5xl">
         <Search />
         <div className="flex items-center">
           <IconButton Icon={Grip} className="mr-3" />

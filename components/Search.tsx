@@ -1,6 +1,6 @@
-
 import { fetchAllForms } from "@/lib/data";
 import SearchInput from "./SearchInput";
+import SearchMobile from "./SearchMobile";
 
 async function Search() {
   const forms = await fetchAllForms();
@@ -8,7 +8,7 @@ async function Search() {
   return (
     <>
       <SearchInput forms={forms} />
-      {/* <SearchMobile /> */}
+      <SearchMobile />
     </>
   );
 }

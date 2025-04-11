@@ -31,7 +31,7 @@ const features = [
 export default function Home() {
   return (
     <main>
-      <div className="w-full py-12 md:py-24 lg:py-32">
+      <div className="flex flex-col items-center w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center text-center justify-center space-y-4">
             <div className="space-y-2">
