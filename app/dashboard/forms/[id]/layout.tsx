@@ -4,18 +4,17 @@ import { notFound } from "next/navigation";
 
 async function FormIdLayout({
   children,
-  params: { id },
+  params,
 }: {
   children: React.ReactNode;
-  params: {
-    id: string;
-  };
+  params: { id: string };
 }) {
-  const form = await fetchFormById(id);
+  const form = await fetchFormById(params.id);
 
   if (!form?.id) {
     notFound();
   }
+
   return (
     <>
       <FormPageHeader form={form} />
