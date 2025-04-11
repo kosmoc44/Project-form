@@ -1,4 +1,5 @@
 import api from "@/oneentry";
+import { IFormsEntity } from "oneentry/dist/forms/formsInterfaces";
 
 export async function fetchMenuItems(marker: string) {
   try {
@@ -25,12 +26,12 @@ export async function fetchAllForms() {
   }
 }
 
-export async function fetchFormById(id: string) {
+export async function fetchFormById(id: string): Promise<IFormsEntity> {
   try {
     const formData = await api.Forms.getFormByMarker(id);
-    return formData;
+    return formData as IFormsEntity;
   } catch (error) {
     console.log("Database Error:", error);
-    throw new Error("Failed to fetch form")
+    throw new Error("Failed to fetch form");
   }
 }

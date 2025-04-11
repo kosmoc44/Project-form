@@ -6,7 +6,11 @@ import IconButton from "./IconButton";
 import { UserButton } from "@clerk/nextjs";
 import SendForm from "./SendForm";
 
-function FormPageHeader({ form }: { form: IFormsEntity }) {
+interface FormPageHeaderProps {
+  form: IFormsEntity;
+}
+
+function FormPageHeader({ form }: FormPageHeaderProps) {
   return (
     <header
       className="flex flex-col items-start sm:items-center gap-y-4 fixed 
