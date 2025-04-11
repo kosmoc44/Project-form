@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Link2, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import IconButton from "./IconButton";
 import { Button } from "./ui/button";
 import {
@@ -19,12 +19,12 @@ import {
   SelectValue,
 } from "./ui/select";
 
-const tabs = [
-  {
-    value: "Link",
-    icon: Link2,
-  },
-] as const;
+// const tabs = [
+//   {
+//     value: "Link",
+//     icon: Link2,
+//   },
+// ] as const;
 
 function SendForm() {
   return (
