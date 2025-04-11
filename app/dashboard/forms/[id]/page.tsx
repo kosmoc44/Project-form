@@ -1,10 +1,19 @@
+// app/dashboard/forms/[id]/page.tsx
 import FormPageHeader from "@/components/FormPageHeader";
 import { fetchFormById } from "@/lib/data";
 import { notFound } from "next/navigation";
 
-export default async function FormPage({ params }: { params: { id: string } }) {
+export default async function FormPage({
+  params,
+}: {
+  params: { id: string }
+}) {
+  // Деструктурируем параметры сразу
+  const { id } = params;
+  
   try {
-    const form = await fetchFormById(params.id);
+    // Используем полученный id
+    const form = await fetchFormById(id);
 
     return (
       <>
@@ -14,6 +23,7 @@ export default async function FormPage({ params }: { params: { id: string } }) {
     );
   } catch (error) {
     console.log(error);
+    
     notFound();
   }
 }
